@@ -1,6 +1,8 @@
+import netscape.javascript.JSObject;
 import org.xml.sax.SAXException;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -56,6 +58,10 @@ public class Main {
         file.createNewFile();
         writer = new FileWriter(file2);
         int sid = 0;
+
+        System.out.println("-------------------------------\n" +
+                "Current Student List\n" +
+                "-------------------------------");
         while (scan.hasNext()) {
 
             String csv = scan.nextLine().replace("|", ",");
@@ -64,7 +70,7 @@ public class Main {
                 sid++;
             } else
                 csv = "" + sid++ + "," + csv;
-            //System.out.println(csv);
+            System.out.println(csv);
             writer.append(csv);
             writer.append("\n");
             writer.flush();
@@ -74,13 +80,6 @@ public class Main {
         ReadXMLFile xmlfile = new ReadXMLFile();
         xmlfile.readxml();
 
-
-        System.out.println("-------------------------------\n" +
-                "Current Student List\n" +
-                "-------------------------------");
-
-        String csvFile = "/Users/Hamed/Documents/GitHub/Sales_Invoice_Generator_udacity/lms/student file/formatted student data.csv";
-        csvconsole.read(csvFile);
 
     }
 }
