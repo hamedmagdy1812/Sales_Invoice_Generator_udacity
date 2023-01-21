@@ -1,14 +1,22 @@
+import org.xml.sax.SAXException;
+
 import java.io.*;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.io.File;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.*;
 
 import static java.nio.file.Files.newBufferedReader;
 import static java.nio.file.Files.newBufferedWriter;
 
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, TransformerException, ParserConfigurationException, SAXException {
 
-
+//go to class replacement put txt file=
         //replace # with ,
         Replacement f = new Replacement();
         try {
@@ -26,51 +34,56 @@ public class Main {
             throw new RuntimeException(e);
         }
         //delete copy folder on exit
-        File file = new File("/Users/Hamed/Documents/lms project/lms/student file/student_data_copy.txt");
+        File file = new File("/Users/Hamed/Documents/GitHub/Sales_Invoice_Generator_udacity/lms/student file/student_data_copy.txt");
         file.deleteOnExit();
 
         //converting student_data_copy_final.txt to student_data_csv.csv
         FileWriter writer = null;
-        file = new File("/Users/Hamed/Documents/lms project/lms/student file/student_data_copy_final.txt");
+        file = new File("/Users/Hamed/Documents/GitHub/Sales_Invoice_Generator_udacity/lms/student file/student_data_copy_final.txt");
         Scanner scan = new Scanner(file);
 
+        File finalfile = new File("/Users/Hamed/Documents/GitHub/Sales_Invoice_Generator_udacity/lms/student file/student_data_copy_final.txt");
+        finalfile.deleteOnExit();
+
+
         //creating csv file
-        File file2 = new File("/Users/Hamed/Documents/lms project/lms/student file/student_data_csv.csv");
+        File file2 = new File("/Users/Hamed/Documents/GitHub/Sales_Invoice_Generator_udacity/lms/student file/formatted student data.csv");
+        //student_data_csv.csv
         file.createNewFile();
         writer = new FileWriter(file2);
 
+        //sid stands for student id
+        file.createNewFile();
+        writer = new FileWriter(file2);
+        int sid = 0;
         while (scan.hasNext()) {
+
             String csv = scan.nextLine().replace("|", ",");
-            System.out.println(csv);
+            if (sid == 0) {
+                csv = "id" + "," + csv;
+                sid++;
+            } else
+                csv = "" + sid++ + "," + csv;
+            //System.out.println(csv);
             writer.append(csv);
             writer.append("\n");
             writer.flush();
         }
 
 
-
-        /*File file = new File(
-                "/Users/Hamed/Documents/udacity/student_data.txt");
-        BufferedReader br
-                = null;
-        try {
-            br = new BufferedReader(new FileReader(file));
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        ReadXMLFile xmlfile = new ReadXMLFile();
+        xmlfile.readxml();
 
 
-        String st;
+        System.out.println("-------------------------------\n" +
+                "Current Student List\n" +
+                "-------------------------------");
 
-        while (true)
-        {
-            try {
-                if (!((st = br.readLine()) != null)) break;
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            System.out.println("(.txt)"+st);
-        }*/
+        String csvFile = "/Users/Hamed/Documents/GitHub/Sales_Invoice_Generator_udacity/lms/student file/formatted student data.csv";
+        csvconsole.read(csvFile);
+
     }
-
 }
+
+
+

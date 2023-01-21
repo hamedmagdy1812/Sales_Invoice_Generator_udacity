@@ -42,7 +42,7 @@ public class ReadXMLFile {
                 "" +
                 "");
         NodeList nodeList = doc.getElementsByTagName("row");
-        File filexml = new File("/Users/Hamed/Documents/GitHub/Sales_Invoice_Generator_udacity/coursedata/course data.csv");
+        File filexml = new File("/Users/Hamed/Documents/GitHub/Sales_Invoice_Generator_udacity/coursedata/formatted course data.csv");
 
         filexml.createNewFile();
         FileWriter writer = new FileWriter(filexml);
