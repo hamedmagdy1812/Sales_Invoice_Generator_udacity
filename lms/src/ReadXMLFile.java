@@ -42,8 +42,8 @@ public class ReadXMLFile {
                 "" +
                 "");
         NodeList nodeList = doc.getElementsByTagName("row");
-        File filexml = new File("/Users/Hamed/Documents/GitHub/Sales_Invoice_Generator_udacity/coursedata/formatted course data.csv");
-
+        File filexml = new File("/Users/Hamed/Documents/GitHub/new_sales_invoice/Sales_Invoice_Generator_udacity/coursedata/formatted course data.csv");
+//formatted course data.csv
         filexml.createNewFile();
         FileWriter writer = new FileWriter(filexml);
         String header = "id" + "," + "Course Name" + "," + "Instructor" + "," + "Course duration" + "," + "Course time" + "," + "Location" + "\n";

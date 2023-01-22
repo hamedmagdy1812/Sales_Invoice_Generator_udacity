@@ -7,8 +7,8 @@ public class Replacement {
     void replace(String stringToReplace, String replaceWith) throws IOException {
 
         //put text file here
-        BufferedReader in = new BufferedReader(new FileReader("/Users/Hamed/Documents/GitHub/Sales_Invoice_Generator_udacity/lms/student file/studetdata.txt"));
-        BufferedWriter out = new BufferedWriter(new FileWriter("/Users/Hamed/Documents/GitHub/Sales_Invoice_Generator_udacity/lms/student file/student_data_copy.txt"));
+        BufferedReader in = new BufferedReader(new FileReader("/Users/Hamed/Documents/GitHub/new_sales_invoice/Sales_Invoice_Generator_udacity/lms/student file/studetdata.txt"));
+        BufferedWriter out = new BufferedWriter(new FileWriter("/Users/Hamed/Documents/GitHub/new_sales_invoice/Sales_Invoice_Generator_udacity/lms/student file/student_data_copy.txt"));
 
         String line;
 
@@ -23,8 +23,8 @@ public class Replacement {
     }
 
     void replace2(String stringToReplace, String replaceWith) throws IOException {
-        BufferedReader in = new BufferedReader(new FileReader("/Users/Hamed/Documents/GitHub/Sales_Invoice_Generator_udacity/lms/student file/student_data_copy.txt"));
-        BufferedWriter out = new BufferedWriter(new FileWriter("/Users/Hamed/Documents/GitHub/Sales_Invoice_Generator_udacity/lms/student file/student_data_copy_final.txt"));
+        BufferedReader in = new BufferedReader(new FileReader("/Users/Hamed/Documents/GitHub/new_sales_invoice/Sales_Invoice_Generator_udacity/lms/student file/student_data_copy.txt"));
+        BufferedWriter out = new BufferedWriter(new FileWriter("/Users/Hamed/Documents/GitHub/new_sales_invoice/Sales_Invoice_Generator_udacity/lms/student file/student_data_copy_final.txt"));
 
         String line;
 
