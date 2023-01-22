@@ -167,8 +167,8 @@ public class Main {
                     String Courseduration = eElement.getElementsByTagName("Courseduration").item(0).getTextContent();
                     String CourseTime = eElement.getElementsByTagName("CourseTime").item(0).getTextContent();
                     String Location = eElement.getElementsByTagName("Location").item(0).getTextContent();
-                    System.out.println(courseid + ", " + ", " + courseName + ", " + Instructor + ", " + Courseduration + ", " + CourseTime + ", " + Location);
-                }
+                    System.out.println(courseid + ",     " + ",     " + courseName + ",     " + Instructor + ",     " + Courseduration + ",     " + CourseTime + ",     " + Location);
+                }//f
             }
         }
     }
