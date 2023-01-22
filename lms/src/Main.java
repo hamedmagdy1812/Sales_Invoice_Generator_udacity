@@ -151,6 +151,9 @@ public class Main {
         doc.getDocumentElement().normalize();
 
         NodeList nodeList = doc.getElementsByTagName("row");
+        System.out.println("====================================================================================\n" +
+                "Student Details page\n" +
+                "====================================================================================");
 
         for (int itr = 0; itr < nodeList.getLength(); itr++) {
             Node node = nodeList.item(itr);
@@ -167,8 +170,12 @@ public class Main {
                     String Courseduration = eElement.getElementsByTagName("Courseduration").item(0).getTextContent();
                     String CourseTime = eElement.getElementsByTagName("CourseTime").item(0).getTextContent();
                     String Location = eElement.getElementsByTagName("Location").item(0).getTextContent();
+
+
+                    System.out.println("------------------------------------------------------------------------------------");
                     System.out.println(courseid + ",     " + ",     " + courseName + ",     " + Instructor + ",     " + Courseduration + ",     " + CourseTime + ",     " + Location);
-                }//f
+                    System.out.println("------------------------------------------------------------------------------------");
+                }
             }
         }
     }
