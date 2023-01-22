@@ -67,9 +67,9 @@ public class Main {
         writer = new FileWriter(file2);
         int sid = 0;
 
-        System.out.println("-------------------------------\n" +
+       /* System.out.println("-------------------------------\n" +
                 "Current Student List\n" +
-                "-------------------------------");
+                "-------------------------------");*/
         while (scan.hasNext()) {
 
             String csv = scan.nextLine().replace("|", ",");
@@ -78,7 +78,7 @@ public class Main {
                 sid++;
             } else
                 csv = "" + sid++ + "," + csv;
-            System.out.println(csv);
+            // System.out.println(csv);
             writer.append(csv);
             writer.append("\n");
             writer.flush();
@@ -92,7 +92,9 @@ public class Main {
         //Files.readAllBytes(Path.of("/Users/Hamed/Documents/GitHub/new_sales_invoice/Sales_Invoice_Generator_udacity/coursedata/formatted course data.csv"))
 
         /*============ JSON PART =========*/
-        int student_id = 5;
+
+        int student_id = 4;
+
         //TODO: get student data (name,age) from csv file
         String jsonString;
         JSONObject jsonObject;
@@ -113,7 +115,7 @@ public class Main {
             }
         }
 
-        if (courses_user_enrolled_in.isEmpty()){
+        if (courses_user_enrolled_in.isEmpty()) {
             System.out.println("Student is not enrolled in any courses");
         }
 
@@ -124,7 +126,10 @@ public class Main {
 
     }
 
+
     public static void readXMLFileForCourses(ArrayList courses_user_enrolled_in) throws JSONException, IOException {
+
+
         File file = new File("/Users/Hamed/Documents/GitHub/Sales_Invoice_Generator_udacity/coursedata/coursedata.xml");
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -155,13 +160,14 @@ public class Main {
                 Element eElement = (Element) node;
                 String id = eElement.getElementsByTagName("id").item(0).getTextContent();
 
-                if (courses_user_enrolled_in.contains(id)){
+                if (courses_user_enrolled_in.contains(id)) {
+                    String courseid = eElement.getElementsByTagName("id").item(0).getTextContent();
                     String courseName = eElement.getElementsByTagName("CourseName").item(0).getTextContent();
-                    // String Instructor = eElement.getElementsByTagName("Instructor").item(0).getTextContent();
-                    // String Courseduration = eElement.getElementsByTagName("Courseduration").item(0).getTextContent();
-                    // String CourseTime = eElement.getElementsByTagName("CourseTime").item(0).getTextContent();
-                    // String Location = eElement.getElementsByTagName("Location").item(0).getTextContent();
-                    System.out.println("courseName:" + courseName);
+                    String Instructor = eElement.getElementsByTagName("Instructor").item(0).getTextContent();
+                    String Courseduration = eElement.getElementsByTagName("Courseduration").item(0).getTextContent();
+                    String CourseTime = eElement.getElementsByTagName("CourseTime").item(0).getTextContent();
+                    String Location = eElement.getElementsByTagName("Location").item(0).getTextContent();
+                    System.out.println(courseid + ", " + ", " + courseName + ", " + Instructor + ", " + Courseduration + ", " + CourseTime + ", " + Location);
                 }
             }
         }
