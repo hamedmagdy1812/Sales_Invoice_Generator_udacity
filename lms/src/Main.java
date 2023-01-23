@@ -1,3 +1,4 @@
+import au.com.bytecode.opencsv.CSVReader;
 import org.json.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -9,9 +10,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -82,10 +81,8 @@ public class Main {
             writer.flush();
         }
 
-
         ReadXMLFile xmlfile = new ReadXMLFile();
         xmlfile.readxml();
-
 
         //Files.readAllBytes(Path.of("/Users/Hamed/Documents/GitHub/new_sales_invoice/Sales_Invoice_Generator_udacity/coursedata/formatted course data.csv"))
 
@@ -93,6 +90,20 @@ public class Main {
         System.out.println("Enter student id");
         Scanner sc = new Scanner(System.in);
         int student_id = sc.nextInt();
+
+
+
+        System.out.println("====================================================================================\n" +
+                "Student Details page\n" +
+                "====================================================================================");
+
+        BufferedReader csvReader = new BufferedReader(new FileReader("/Users/Hamed/Documents/GitHub/new_sales_invoice/Sales_Invoice_Generator_udacity/lms/student file/formatted student data.csv"));
+        String row = null;
+        while (student_id==sid) {
+            String[] data = row.split(",");
+            System.out.println(csvReader);
+        }
+        csvReader.close();
 
         //TODO: get student data (name,age) from csv file
         String jsonString;
@@ -148,9 +159,9 @@ public class Main {
         doc.getDocumentElement().normalize();
 
         NodeList nodeList = doc.getElementsByTagName("row");
-        System.out.println("====================================================================================\n" +
-                "Student Details page\n" +
-                "====================================================================================");
+
+
+
         System.out.println("------------------------------------------------------------------------------------");
         if (courses_user_enrolled_in.isEmpty()) {
             System.out.println("Student is not enrolled in any courses");
@@ -178,7 +189,10 @@ public class Main {
         System.out.println("------------------------------------------------------------------------------------");
     }
 }
-
+/*IMPORTANT NOTE:
+the project doesn't finished yet i reported a problem to
+the communinity about late submition due to my final exams
+ */
 
 
 
