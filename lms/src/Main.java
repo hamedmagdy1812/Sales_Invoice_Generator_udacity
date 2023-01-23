@@ -1,5 +1,3 @@
-
-
 import org.json.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -92,8 +90,9 @@ public class Main {
         //Files.readAllBytes(Path.of("/Users/Hamed/Documents/GitHub/new_sales_invoice/Sales_Invoice_Generator_udacity/coursedata/formatted course data.csv"))
 
         /*============ JSON PART =========*/
-
-        int student_id = 4;
+        System.out.println("Enter student id");
+        Scanner sc = new Scanner(System.in);
+        int student_id = sc.nextInt();
 
         //TODO: get student data (name,age) from csv file
         String jsonString;
@@ -115,9 +114,7 @@ public class Main {
             }
         }
 
-        if (courses_user_enrolled_in.isEmpty()) {
-            System.out.println("Student is not enrolled in any courses");
-        }
+
 
         readXMLFileForCourses((ArrayList) courses_user_enrolled_in);
 
@@ -154,7 +151,10 @@ public class Main {
         System.out.println("====================================================================================\n" +
                 "Student Details page\n" +
                 "====================================================================================");
-
+        System.out.println("------------------------------------------------------------------------------------");
+        if (courses_user_enrolled_in.isEmpty()) {
+            System.out.println("Student is not enrolled in any courses");
+        }
         for (int itr = 0; itr < nodeList.getLength(); itr++) {
             Node node = nodeList.item(itr);
             // System.out.println("\nNode Name :" + node.getNodeName());
@@ -170,14 +170,12 @@ public class Main {
                     String Courseduration = eElement.getElementsByTagName("Courseduration").item(0).getTextContent();
                     String CourseTime = eElement.getElementsByTagName("CourseTime").item(0).getTextContent();
                     String Location = eElement.getElementsByTagName("Location").item(0).getTextContent();
+                    System.out.println(courseid + ",     " + courseName + ",     " + Instructor + ",     " + Courseduration + ",     " + CourseTime + ",     " + Location);
 
-
-                    System.out.println("------------------------------------------------------------------------------------");
-                    System.out.println(courseid + ",     " + ",     " + courseName + ",     " + Instructor + ",     " + Courseduration + ",     " + CourseTime + ",     " + Location);
-                    System.out.println("------------------------------------------------------------------------------------");
                 }
             }
         }
+        System.out.println("------------------------------------------------------------------------------------");
     }
 }
 
